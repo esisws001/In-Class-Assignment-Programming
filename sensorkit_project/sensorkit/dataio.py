@@ -23,13 +23,18 @@ def load_readings(filepath):
         instead of letting the program crash.
     """
     path = Path(filepath)
+    if not path.exists():
+        raise FileNotFoundError(f'File not found')
     readings = []
     with open (path, "r") as file:
         for line in file:
+            line_str = line.strip()
+            if not line_str:
+                continue
             try:
-                line = float(line.strip())
-                readings.append(line)                        
+                val = float(line_str)
+                readings.append(val)                        
             except (ValueError):
-                print(f"Skipping invalid line: {line!r}")
+                print(f"Skipping invalid line: {line_str!r}")
 
-        return readings
+    return readings

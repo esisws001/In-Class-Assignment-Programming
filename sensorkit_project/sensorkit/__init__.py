@@ -11,10 +11,9 @@ If you add a StrainGauge class in sensors.py, add it to the import below too.
 """
 
 from .base import Sensor
-from .sensors import Thermocouple  # Add StrainGauge here if implemented
+from .sensors import Thermocouple 
 from .utils import load_readings, summarise
 
-# Define __all__ to explicitly control what `from sensorkit import *` exports
 __all__ = [
     "Sensor",
     "Thermocouple",

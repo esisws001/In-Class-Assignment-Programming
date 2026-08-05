@@ -21,17 +21,17 @@ def summarise(sensor, raw_readings):
     #         for every r in raw_readings
     calibrated=[]
     for r in raw_readings:
-        caliberated += [sensor.read(r)]
+        calibrated += [sensor.read(r)]
 
     # TODO : get the unit string from sensor.units() and store it in `u`
     u=sensor.units()
     # TODO : print the report. Suggested lines (format numbers to 2 d.p.):
-    name= sensor.name()
-    mean=sensor.mean(caliberated)
-    minimum=sensor.minimum(caliberated)
-    maximum=sensor.maximum(caliberated)
-    the_spread=sensor.spread(caliberated)
-    report =f'Report for {name}\n count: {len(caliberated)}\nmean: {mean:.2f} {u}\nmin: {minimum:.2f} {u}\nmax:{maximum:.2f} {u}\nspread: {the_spread:.2f} {u}'
+    name= sensor.name
+    avg= mean(calibrated)
+    min_val=minimum(calibrated)
+    max_val=maximum(calibrated)
+    the_spread=spread(calibrated)
+    report =f'Report for {name}\n count: {len(calibrated)}\nmean: {avg:.2f} {u}\nmin: {min_val:.2f} {u}\nmax:{max_val:.2f} {u}\nspread: {the_spread:.2f} {u}'
     #         Report for <sensor.name>
     #           count:   <how many readings>
     #           mean:    <mean> <u>

@@ -10,12 +10,8 @@ It exposes the public API so a user can simply write:
 If you add a StrainGauge class in sensors.py, add it to the import below too.
 """
 from .base import Sensor
-from .sensors import Thermocouple 
-from .utils import load_readings, summarise
+from .sensors import Thermocouple, PressureGauge, StrainGauge
+from .dataio import load_readings
+from .report import summarise
 
-__all__ = [
-    "Sensor",
-    "Thermocouple",
-    "load_readings",
-    "summarise",
-]
+__all__ = ["Sensor", "Thermocouple","PressureGauge","StrainGauge","load_readings","summarise",]

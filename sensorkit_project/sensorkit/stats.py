@@ -10,7 +10,7 @@ Complete the TODOs below.
 
 
 def mean(values):
-    if values != "":
+    if values:
         return (sum(values)/len(values))
     else:
         raise ValueError("mean() needs values")

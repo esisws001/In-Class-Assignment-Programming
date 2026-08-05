@@ -14,30 +14,25 @@ class Thermocouple(Sensor):
     def __init__(self,name):
         super().__init__(name)
     def read(self, raw):
-        return f'{raw * 24.9 - 0.4} C'
-        
-    def units(self, raw):
-        find = raw.split(' ')
-        return find[1]
+        return raw * 24.9 - 0.4
+    def units(self):
+        return 'C'
         
 class PressureGauge(Sensor):
     def __init__(self,name):
         super().__init__(name)
     def read(self, raw):
-        return f'{raw * 2.5} bar'
-        
+        return raw * 2.5
     def units(self, raw):
-        find = raw.split(' ')
-        return find[1]
+        return 'bar'
 
 class StrainGauge(Sensor):
      def __init__(self,name):
         super().__init__(name)
      def read(self, raw):
-         return f'{raw*1000} microstrain'
+         return raw*1000
      def units(self, raw):
-        find = raw.split(' ')
-        return find[1]
+        return 'microstrain'
         
      
 

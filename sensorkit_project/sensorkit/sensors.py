@@ -8,7 +8,7 @@ Role: Provide concrete sensor classes built on the Sensor base class.
 Each class must implement both abstract methods: read() and units().
 Complete the TODOs below.
 """
-from base import Sensor
+from .base import Sensor
 
 class Thermocouple(Sensor):
     def __init__(self,name):
@@ -23,7 +23,7 @@ class PressureGauge(Sensor):
         super().__init__(name)
     def read(self, raw):
         return raw * 2.5
-    def units(self, raw):
+    def units(self):
         return 'bar'
 
 class StrainGauge(Sensor):
@@ -31,7 +31,7 @@ class StrainGauge(Sensor):
         super().__init__(name)
      def read(self, raw):
          return raw*1000
-     def units(self, raw):
+     def units(self):
         return 'microstrain'
         
      
